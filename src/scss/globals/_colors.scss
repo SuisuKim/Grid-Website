@@ -1,0 +1,31 @@
+/* Root selector is going to override any value of the same variable name
+that might be set on html and body*/
+:root {
+  --background-color: #ffffff;
+  --text-color: #2D3436;
+  --secondary-color: #6C5CE7;
+  --dark-gray: #5C5C5C;
+  --light-gray: #ADADAD;
+  --soft-gray:#C2C2C2;
+  --peach: #FF7675;
+  --green: #00B894;
+  --pink: #E84393;
+  --blue: #74B9FF;
+  --light-green: #55EFC4;
+  --dark-yellow: #FDCB6E;
+  --light-yellow:#FFEAA7;
+  --red: #D63031;
+
+}
+
+// $background-color: #ffffff;
+// $text-color: #2D3436;
+// $secondary-color: #6C5CE7;
+// $dark-gray: #5C5C5C;
+// $light-gray: #ADADAD;
+// $peach: #FF7675;
+// $green: #00B894;
+// $pink: #E84393;
+// $blue: #74B9FF;
+// $light-green: #55EFC4;
+// $dark-yellow: #FDCB6E;

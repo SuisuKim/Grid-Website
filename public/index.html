@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1">
+    <!-- RESET CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@3.0.0/reset.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Grid</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="navbar">
+          <div class="navbar__left">
+            <!-- HAMBURGER -->
+            <a href="#" class="hamburger">
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+              <span class="hamburger__line"></span>
+            </a>
+            <img class="desktop__logo" src="/assets/img/icon-layout.png" alt="header logo">  
+            <p class="title__name">Grid</p>
+          </div>
+          <button type="button" class="signIn">Sign In</button>  
+          <ul class="menu">
+            <li class="menu__items"><a href="">How it works</a></li>
+            <li class="menu__items menu__items--dot"></li>
+            <li class="menu__items"><a href="">Who we are</a></li>
+            <li class="menu__items menu__items--dot"></li>
+            <li class="menu__items"><a href="">What we do</a></li>
+            <li class="menu__items menu__items--dot"></li>
+            <li class="menu__items"><a href="">Contact us</a></li>
+          </ul>
+        </div>  
+      </nav>
+    </header>
+    <main>
+      <!-- HERO -->
+      <section class="hero"> 
+        <h1>Combine</h1>
+        <h2>
+          <span class="highlighter__container">
+            <span class="highlighter">Cool</span>
+          </span> 
+          images
+        </h2>
+        <h3>To create any grid by <br> 
+          scaling and resizing
+        </h3>
+        <!-- GRID -->
+        <img class="hero__arrow" src="/assets/img/icon-arrow-right.png" alt="down arrow">
+        <div class="grid">
+          <div class="grid-1">
+            <img src="/assets/img/img1.jpg" alt="breads" class="grid__img-1 grid__img">
+          </div>
+          <div class="grid-2">
+            <img src="/assets/img/img2.jpg" alt="merry go around" class="grid__img-2 grid__img">
+            <p>Consider it done!</p>
+          </div>
+          <div class="grid-3">
+            <img src="/assets/img/img3.jpg" alt="girl sitting on the grass" class="grid__img-3 grid__img">
+          </div>
+          <div class="grid-4">
+            <img src="/assets/img/img4.jpg" alt="white flower" class="grid__img-4 grid__img">
+          </div>
+          <div class="grid-5">
+            <img src="/assets/img/img5.jpg" alt="man acrossing the road" class="grid__img-5 grid__img">
+          </div>
+          <div class="grid-6">
+            <img src="/assets/img/img6.jpg" alt="cheese and cherry" class="grid__img-6 grid__img">
+          </div>
+          <div class="grid-7">
+            <img src="/assets/img/img7.jpg" alt="girl reading a book" class="grid__img-7 grid__img">
+            <p>See my goal?</p>
+          </div>
+          <div class="grid-8">
+            <button class="grid__btn" type="button">Learn more</button>
+          </div> 
+        </div>
+      </section>
+      <!-- FEATURES -->
+      <section class="details">
+        <h3>Delivering good designs<br>
+        <span>since 1954</span></h3>
+        <h4>We’re the first multi-purpose design kit solutions for businesses. We help you bridge
+          gaps between your layouts, templates and developers to empower all involved.</h4>
+        <div class="features">
+          <article class="feature__details">
+            <img src="/assets/img/Vector.png" alt="thumbs up icon" class="feature__details-icon-1">
+            <h3>Swap the icon</h3>
+            <h4>You can toggle to any icon within Instances and
+            customize outlined stroke to more bolder or lighter</h4>
+            <button class="feature__button">Learn more</button>
+          </article>
+          <article class="feature__details">
+            <img src="/assets/img/icon-zap-off.png" alt="zap off icon" class="feature__details-icon-2">
+            <h3>Detach if need</h3>
+            <h4>Detaching the block instance will help 
+            you to control the indents and font styles more precisely</h4>
+            <button class="feature__button">Learn more</button>
+          </article>
+          <article class="feature__details">
+            <img src="/assets/img/icon-linkedin.png" alt="linkedin icon" class="feature__details-icon-3">
+            <h3>Toggle icons</h3>
+            <h4>You can toggle to any icon within Instances and 
+            customize outlined stroke to more bolder or lighter</h4>
+            <button class="feature__button">Learn more</button>
+          </article>
+          <article class="feature__details">
+            <img src="/assets/img/icon-briefcase.png" alt="briefcase icon" class="feature__details-icon-4">
+            <h3>Replace a title</h3>
+            <h4>Detaching the block instance will help you 
+            to control the indents and font styles more precisely</h4>
+            <button class="feature__button">Learn more</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="pricing">
+        <!-- container(div) overflows its parent making a horizontal scroll.. -->
+          <h2>Pricing</h2>
+          <h3>
+            <span class="monthly">Bill me monthly</span>
+            <span>•</span>
+            <span class="highlighter__container">
+              <span class="yearly highlighter">yearly</span>
+            </span>
+          </h3>
+
+          <div class="pricing__plans">
+            <article class="pricing__plan">
+              <div class="pricing__plan__heading">
+                <h4>Individual</h4>
+                <p>FINE!</p>
+              </div>
+              <h3>$8.99 <span class="pricing__month">/ month</span></h3>
+              <ul class="plan__details">
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Unlimited hosting</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Free storage</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Lifetime support</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Constant updates </li>
+                <button type="button" class="pricing__plan__button">Get started!</button>
+              </ul>
+            </article>
+            <article class="pricing__plan">
+              <div class="pricing__plan__heading">
+                <h4>Professional</h4>
+                <p>GOOD!</p>
+              </div>
+              <h3>$12.99 <span class="pricing__month">/ month</span></h3>
+              <ul class="plan__details">
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Unlimited hosting</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Free storage</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Lifetime support</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Constant updates </li>
+                <button type="button" class="pricing__plan__button">Select this plan!</button>
+              </ul>
+            </article>  
+            <article class="pricing__plan">
+              <div class="pricing__plan__heading">
+                <h4>Enterprise</h4>
+                <p>WOW!</p>
+              </div>
+              <h3>$32.99 <span class="pricing__month">/ month</span></h3>
+              <ul class="plan__details">
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Unlimited hosting</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Free storage</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Lifetime support</li>
+                <li><img src="/assets/img/icon Acrylic-orange.png" alt="check icon">Constant updates </li>
+                <button type="button" class="pricing__plan__button">Start today!</button>
+              </ul>
+            </article>
+          </div>
+      </section>
+      <!-- PRICING -->
+
+    </main>
+    <footer>
+      <section>
+        <!-- Mobile footer -->
+        <div class="footer__mobile">
+          <p class="copyright">Copyright &copy; 2018 • Your Company<br>
+            All rights reserved</p>
+          <p class="agency">Made in Setproduct.com<br>
+            One man digital agency</p>
+          <a href="#" class="email">hello@setproduct.com</a>
+          <div class="social">
+            <img src="/assets/img/icon-facebook.png" alt="" class="social__icon">
+            <img src="/assets/img/icon-linkedin-1.png" alt="" class="social__icon">
+            <img src="/assets/img/icon-slack.png" alt="" class="social__icon">
+            <img src="/assets/img/icon-twitter.png" alt="" class="social__icon">
+            <img src="/assets/img/icon-youtube.png" alt="" class="social__icon">
+          </div>
+        </div>
+
+        <!-- Desktop footer -->
+        <div class="desktop__footer">
+          
+          <section class="desktop__footer--top">
+            <div class="social--desktop">
+              <p class="footer__heading">FOLLOW US</p>
+              <img src="/assets/img/icon-facebook-d.png" alt="facebook" class="social__icon--desktop facebook--desktop">
+              <img src="/assets/img/icon-linkedin-d.png" alt="linkedin" class="social__icon--desktop">
+              <img src="/assets/img/icon-slack-d.png" alt="slack" class="social__icon--desktop">
+              <img src="/assets/img/icon-twitter-d.png" alt="twitter" class="social__icon--desktop">
+            </div>
+            <!-- Footer Email -->
+            <div class="email--desktop">
+              <p class="footer__heading">FOLLOW US</p>
+              <a href="#" class="email">hello@fapsterapp.com</a>
+            </div>
+          </section>
+
+          <section class="desktop__footer--bottom">
+            <!-- Footer information -->
+            <div class="footer__information"> 
+              <p class="footer__heading">INFORMATION</p>
+              <ul>
+                <li class="information__item"><a href="#">About Fapster app</a></li>
+                <li class="information__item"><a href="#">Onhovered / Active</a></li>
+                <li class="information__item"><a href="#">We are hiring!</a></li>
+                <li class="information__item"><a href="#">Get in Touch</a></li>
+                <li class="information__item"><a href="#">Privacy Policy</a></li>
+                <li class="information__item"><a href="#">Resources</a></li>
+                <li class="information__item"><a href="#">Things We Like</a></li>
+                <li class="information__item"><a href="#">Terms of Service</a></li>
+              </ul>
+            </div>
+            <!-- Footer-contact form -->
+
+            <!-- Accessibility, Placeholder transition... -->
+            <div class="contact__form">
+              <form action="#">
+                <fieldset>
+
+                  <legend class="footer__heading">KEEP IN TOUCH</legend>
+                    
+                  <div class="contact__top">
+                    <div class="field__holder">
+                      <input type="text" id="name" aria-required="true" required>
+                      <label for="name">Your name *</label>
+                    </div>
+                    
+                    <div class="field__holder">
+                      <input type="email" id="email" aria-required="true" required>
+                      <label for="email">E-mail *</label>
+                    </div>
+                  </div>
+                  
+                  <div class="contact__bottom">
+                    <div class="field__holder">
+                      <input type="text" id="message" class="contact__message" aria-required="true" required>
+                      <label for="message">Leave your message *</label>
+                    </div>
+
+                    <button type="submit" class="contact__submit">SEND</button>
+                  </div>
+                  <p class="required"><span>*</span> Required fields</p>
+                </fieldset>
+              </form>
+            </div>
+
+          </section>
+        </div>
+
+      </section>
+    </footer>
+    <!-- Java Script -->
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

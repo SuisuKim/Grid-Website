@@ -1,0 +1,751 @@
+    // needed to install concurrently in command line. npm i concurrently -D//
+    // Don't nest too many.. hard to read code, might gives some difficulties with sellecting
+    // grid section margin bottom?
+    // why is grid overflowing? GRID PERCENTAGE
+
+
+    // mixin doesn't work in other separate scss file but why the color file works?
+    // how to make the hamburger menu inactive automatically when the screen size got bigger
+    // input:focus border color change is not working???
+    // highlighter(display:block) area not taking up the whole width
+
+@forward 'globals';
+@import 'util';
+@import 'layout';
+
+
+
+// MIXIN
+@mixin button($radius, $button-height, $button-width,$button-f-size) {
+  background-color: var(--secondary-color);
+  border-radius: $radius;
+  height: $button-height;
+  width: $button-width;
+  font-weight: $f-bold;
+  color: var(--background-color);
+  font-size: $button-f-size;
+  cursor: pointer;
+} 
+
+@mixin box-shadow {
+  box-shadow: 0 4px 8px rgba(38, 50, 56, 0.2)  ; 
+}
+
+@mixin text-shadow {
+  text-shadow: 0px 4px 8px rgba(38, 50, 56, 0.16);
+}
+
+@mixin font ($f-size, $f-weight, $f-color:var(--text-color)) {
+  font-size: $f-size;
+  font-weight: $f-weight;
+  color: $f-color;
+}
+
+@mixin icon-feature($radius, $b-color,){
+  border-radius: $radius;
+  background-color: $b-color;
+}
+
+  // MEDIAQUERY
+@mixin respond($breakpoint) {
+  @if $breakpoint==desktop {
+    @media screen and (min-width:769px) {
+      @content;
+    }
+  }
+}
+
+
+
+//BACKGROUND
+body {
+  background-image: url(/assets/img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// .container {
+//   width: 1150px;
+//   margin: 0 auto;
+// }
+
+
+// HAMBURGER MENU
+header {
+  width: 100%;
+  height: auto;
+  background-color: var(--background-color);
+  @include box-shadow();
+  margin-bottom: 48px;
+  @include respond(desktop) {
+    height: 96px;
+  }
+  
+  nav {
+    display: flex;
+    padding: 16px 65px 16px 66px;
+    align-items: center;
+    flex-direction: column;
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+      // wrapped to create colomn menu
+      @include respond(desktop) {
+        flex-wrap: nowrap ;
+      }
+
+
+      &__left {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .desktop__logo {
+      display: none;
+      @include respond(desktop) {
+        display: inline-block;
+        width: 31.5px;
+        height: 28.8px;
+      }
+    }
+
+    .hamburger {
+      display: inline-block;
+      margin-right: 11px;
+      cursor: pointer;
+      @include respond(desktop) {
+        display: none;
+      }
+      
+      &__line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: var(--dark-gray);
+        border-radius: 10px;
+
+        &:first-child,
+        &:nth-child(2) {
+          margin-bottom: 4px;
+        }
+      }
+    }
+
+    .title__name {
+      @include font($f-subhead-m, $f-bold, var(--dark-gray));
+      display: inline-block;
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+      padding:  12px;
+      text-align: center;
+      @include respond(desktop) {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-left: 50px;
+        padding-right: 250px;
+      }
+      .menu__items {
+        display: block;
+        @include respond(desktop) {
+          font-size: $f-li-m;    
+        }
+
+        a{
+          @include font($f-button-m,$f-regular,var(--secondary-color));
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          padding: 12px 24px;
+          @include respond(desktop) {
+            padding: 12px 10px;
+          }
+        }
+      }
+
+      .menu__items--dot {
+        display: none;
+        @include respond(desktop){
+          display: block;
+          background-color: var(--dark-yellow);
+          border-radius: 50%;
+          width: 5px;
+          height: 5px;
+        }        
+      }
+      // when elements in a flexbox are set to block display why are they not taking the whole block..?
+
+      .menu__items:hover {
+        font-weight: $f-bold;
+
+        a:hover {
+          background-color: var(--secondary-color);
+          color: var(--background-color);
+          border-radius: 10px;
+          @include respond(desktop) {
+            background-color: var(--background-color);
+            @include respond(desktop) {
+              color: var(--text-color);
+            }
+          }
+        }
+      }
+
+    }
+
+    .menu.active {
+      display: block;
+      
+    }
+    // Why it's not working???
+    // Spelling of active was wrong..
+
+    .signIn {
+      @include button(8px, 40px, 128px,18px);
+      @include box-shadow;
+      @include text-shadow();
+      @include respond(desktop) {
+        position:absolute;
+        top: 30px;
+        right: 100px;
+        border-radius: 20px;
+      }
+    
+
+
+    }
+  }
+}
+
+
+
+
+
+
+main {
+  
+
+  //HERO
+  .hero {
+    
+    text-align: center;
+    h1{
+      @include font(64px, $f-superbold,);
+      margin-bottom: 8px;
+      @include respond(desktop) {
+        font-size: 96px;
+      }
+    }
+    h2 {
+      @include font(48px, $f-bold);
+      margin-bottom: 32px;
+      @include respond(desktop) {
+        font-size: 64 px;
+      }
+      
+       // HIGHLIGHTER FOR 'COOL'
+      .highlighter__container, 
+      .highlighter {
+        position: relative; 
+      }
+      
+      .highlighter__container::before {
+        content: " ";
+        display: block;
+        // How can block not take up the whole width???
+        height: 50%;
+        width: 100%;
+        margin-left: -3px;
+        margin-right: -3px;
+        position: absolute;
+        background: var(--light-green);
+        transform: rotate(2deg);
+        top: 30px;
+        left: -1px;
+        border-radius: 16px;
+        padding: 10px 3px 3px 10px;
+      }
+      span {
+        color:var(--red);
+        text-shadow: 0 3px 0 var(--background-color);
+      }
+    }
+    h3 {
+      @include font($f-subhead-m,$f-bold);
+      line-height:$line-1;
+      margin-bottom: 16px;
+    }
+    &__arrow {
+      background-color: #ffffffde;
+      border-radius: 50%;
+      margin-bottom: 24px;
+      @include respond(desktop) {
+        display: none;
+      }
+    }
+  }
+  
+  // GRID BUTTON / PADDING
+  .grid {    
+
+    @include respond(desktop){
+      padding: 0 10%;
+    }
+    
+    &__btn {
+      @include button(999px, 37px, 130px, $f-li-m );
+      @include respond(desktop) {
+        @include button(999px, 60px, 200px, $f-button-m );
+      }
+    }
+  }
+
+  // DETAILS
+  .details {
+    padding: 0 15px;
+
+    @include respond(desktop) {
+      padding: 0 10%;
+    }
+
+    h3{
+      @include font($f-subhead-m,$f-bold);
+      line-height: $line-1;
+      span {
+        color:var(--secondary-color);
+      }
+      margin-bottom: 8px;
+    }
+    h4{
+      @include font($f-button-m,$f-regular);
+      line-height: $line-1;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      @include respond(desktop) {
+        flex-wrap: nowrap;
+        
+      }
+      
+      .feature__details {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        h3{
+          font-size:$f-button-m;
+          margin-bottom: 12px;
+        }
+
+        h4{
+          font-size:$f-li-m;
+          color: var(--dark-gray);
+          line-height: $line-2;
+          margin-bottom: 7.5px;
+        }
+
+        img{
+          width:52px;
+          margin-bottom: 18px;
+        }
+
+        &-icon-1 {
+          @include icon-feature(12px, var(--peach));
+          padding:13px; 
+        }
+
+        &-icon-2 {
+          @include icon-feature(12px, var(--green));
+          padding:3.5px
+        }
+
+        &-icon-3 {
+          @include icon-feature(12px, var(--pink));
+          padding:3.5px          
+        }
+
+        &-icon-4 {
+          @include icon-feature(12px, var(--blue));
+          padding:3.5px          
+        }
+
+        .feature__button {
+          width: 109.5px;
+          height: 36px;
+          border: 0.75px solid var(--light-gray);
+          color: var(--secondary-color);
+          border-radius: 12px;
+          font-weight: $f-bold;
+          background-color: #FFF1EE;
+          margin-bottom: 40px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  //PRICING
+
+  .pricing {
+    padding: 0 15px;
+    margin-bottom: 80px;
+    @include respond(desktop) {
+      padding: 0 10%;
+      
+    }
+  
+    /*padding and margin gives me a horizontal 
+    sroll bar */
+
+    h2{
+      @include font($f-head-m, $f-bold);
+      margin-bottom: 16px;
+    }
+    h3 {
+      margin-bottom: 40px;
+      @include font($f-subhead-m, $f-regular,var(--light-gray));
+      
+      // HIGHLIGHTER FOR 'YEALY'
+      .highlighter__container, 
+      .highlighter {
+        position: relative;
+      }
+
+      .highlighter__container::before {
+        content: " ";
+        display: block;
+        // How can block not take up the whole width???
+        height: 50%;
+        width: 100%;
+        margin-left: -3px;
+        margin-right: -3px;
+        position: absolute;
+        background: var(--dark-yellow);
+        transform: rotate(1deg);
+        top: 20px;
+        left: -1px;
+        border-radius: 16px;
+        padding: 10px 3px 3px 10px;
+      }
+      
+      .yearly {
+        color: var(--text-color);
+      }
+    }
+
+    &__plans {
+      @include respond(desktop) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+
+    &__plan{
+      @include box-shadow();
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      
+      @include respond(desktop) {
+        box-shadow: none;
+        width: 30%;
+      }
+
+      &__heading{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        h4{
+          @include font($f-button-m,$f-bold);
+        }
+
+        p{
+          @include font($f-add-m,800);
+          letter-spacing: 2.5px;
+          border: 1px solid var(--light-gray);
+          width: 90px;
+          padding: 10px;
+          border-radius: 99px;
+          text-align: center;
+          @include respond(desktop) {
+            width: 70px;
+          }
+        }
+      }
+      h3 {
+        @include font($f-subhead-m, $f-bold, var(--secondary-color));
+        .pricing__month{
+          font-size:$f-li-m; 
+          margin-bottom: 24px; 
+          background-color: var(--l)
+
+        }
+      }
+      .plan__details {
+        li {
+          @include font($f-li-m, 500);
+          display: flex;
+          align-items: center;
+          margin-bottom: 24px;
+          img {
+            margin-right: 8px;
+          }
+        }
+        .pricing__plan__button {
+          @include button(16px, 48px, 282px,$f-button-m);
+          width: 100%;
+          @include respond(desktop) {
+            background-color: #FFF1EE;
+            border: 1px solid var(--light-gray);
+            color: var(--secondary-color);
+          }
+          // why margin:0 auto doesnt work????
+        }
+      }
+    }
+
+    &__plan:hover {
+      @include box-shadow();
+      background-color: var(--secondary-color);
+      h3{
+        color: var(--background-color);
+      }
+      
+      .pricing__plan__heading {
+        h4{
+          color: var(--light-green);
+        } 
+        p {
+            color: var(--light-green);
+            border-color: var(--light-green);
+          // why doesnt it work??????
+        } 
+      }
+      .plan__details{
+        li {
+          color: var(--background-color);
+        }
+        .pricing__plan__button {
+          background-color: var(--background-color);
+          color: var(--text-color);
+        }
+      }
+    }
+  }  
+}  
+
+
+
+
+
+// FOOTER
+.footer__mobile{
+  padding: 0 15px;
+  margin-bottom: 40px;
+  @include respond(desktop) {
+    display: none;
+  }
+  .copyright{
+    @include font($f-li-m,500);
+    text-align: center;
+    line-height: $line-2;
+    margin-bottom: 8px;
+  }
+  .agency{
+    @include font($f-add-m,$f-regular,var(--green));
+    line-height: 1.375rem;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .email{
+    @include font($f-button-m,$f-bold,var(--secondary-color));
+    line-height: $line-1;
+    text-align: center;
+    display: block;
+    letter-spacing: 0.0125rem;
+    text-decoration: none;
+    margin-bottom: 40px;
+  }
+
+  .social {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  }
+
+  // DESKTOP FOOTER
+.desktop__footer {
+  display: none;
+
+  @include respond(desktop) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10%;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+.desktop__footer--top,
+.desktop__footer--bottom {
+  display: flex;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+
+.social--desktop,
+.email--desktop,
+.footer__information,
+.contact__form {
+  width: 50%;
+}
+
+  // FACEBOOK ICON
+.facebook--desktop {
+  padding: 9px 13px;
+}
+
+.social__icon--desktop {
+  margin-right: 35px;  
+}
+
+.social__icon--desktop:hover {
+  background-color: var(--light-yellow);
+  border-radius: 50%;
+}
+
+.footer__heading {
+  @include font($f-add-m, 800, var(--light-gray));
+  letter-spacing: 0.156rem;
+  line-height: 0.9rem;
+  margin-bottom: 16px;
+}
+
+// EMAIL
+
+.email {
+  @include font($f-head-m, $f-bold, var(--secondary-color));
+  text-decoration: none;
+}
+
+// INFORMATION
+
+.footer__information {
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.information__item {
+  display: inline-block;
+  width: 30%;
+  padding: 8px 0;
+  a {
+    text-decoration: none;
+    @include font($f-li-m, $f-regular, var(--text-color));
+  }
+}
+
+.information__item:hover {
+  text-decoration: underline;
+}
+
+// CONTACT
+.contact__top,
+.contact__bottom {
+  display: flex;
+  gap: 5%;
+  width: 100%;
+}
+
+.contact__form {
+  input {
+    background-color: #c2c2c24f;
+    border: none;
+    border-radius: 16px;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    
+  }
+
+  input:hover {
+    border:2px solid var(--secondary-color);
+  }
+
+}
+
+.contact__bottom {
+  .contact__message {
+    height: 80px;
+  }
+}
+  
+.contact__submit {
+  @include button(16px, 80px, 160px, $f-subhead-m);
+}
+
+.required {
+  font-size: $f-add-m;
+  font-weight: 500;
+  span {
+    color: var(--secondary-color);
+    font-weight: 700;
+  }
+}
+// PLACEHOLDER TRANSITION
+
+.field__holder {
+  position: relative;
+  margin-bottom: 1.25em;
+  width: 100%;
+
+}
+
+.contact__form {
+  label {
+    position: absolute;
+    top:20px;
+    left: 10px ;
+    display: flex;
+    align-items: center;
+    cursor: text;
+    color: var(--secondary-color);
+    width: 100%;
+    transition: .2  s ease-in-out;
+  }
+
+  input:focus + label,
+  input:valid + label {
+    font-size: $f-li-m;
+    top: -10px;
+  }
+}
